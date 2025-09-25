@@ -67,9 +67,6 @@ pipeline {
         stage('Docker Scout Image') {
             steps {
                 script{
- // Add Docker CLI plugin path to PATH
-            withEnv(["PATH+DOCKER=/usr/local/bin:/usr/local/lib/docker/cli-plugins"]) {
-                // Use correct subcommand syntax
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh 'docker-scout quickview anilkumar663/zomato:latest'
                        sh 'docker-scout cves anilkumar663/zomato:latest'
