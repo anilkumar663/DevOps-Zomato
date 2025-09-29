@@ -653,7 +653,7 @@ Lets continue with load balancer thing of previous step; execute the below in VS
 export ARGOCD_SERVER=`kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname'`
 
 Execute the below command in powershell, if the command doesn't get executed in VS Code Editor
-$env:ARGOCD_SERVER = $(kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname')
+$env:ARGOCD_SERVER = $(kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname')   (Add jq path in this command)
 
 
 (Ref URL: https://archive.eksworkshop.com/intermediate/290_argocd/configure/)
