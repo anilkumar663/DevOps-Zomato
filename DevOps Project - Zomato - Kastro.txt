@@ -670,7 +670,7 @@ To get the password, execute the below command in vs code editor;
 export ARGO_PWD=`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
 
 Execute the below command in powershell, if the command doesn't get executed in VS Code Editor
-$env:ARGO_PWD = (kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) })
+$enc = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath='{.data.password}'; [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($enc))
 
 To see the password;
 echo $ARGO_PWD
